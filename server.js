@@ -7,14 +7,15 @@ const passport = require("passport");
 
 const app = express();
 
-//------------ Passport Configuration ------------//
+require('dotenv').config()
+    //------------ Passport Configuration ------------//
 require("./config/passport")(passport);
 
 //------------ DB Configuration ------------//
 
 //------------ Mongo Connection ------------//
 mongoose
-    .connect("mongodb+srv://biley:biley123@cluster0.ez40t.mongodb.net/biley123?retryWrites=true&w=majority", {
+    .connect(process.env.DB, {
         useUnifiedTopology: true,
         useNewUrlParser: true,
     })
