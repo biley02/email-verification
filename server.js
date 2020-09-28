@@ -14,7 +14,10 @@ require("./config/passport")(passport);
 
 //------------ Mongo Connection ------------//
 mongoose
-    .connect("mongodb://localhost/nodejs-auth")
+    .connect("mongodb+srv://biley:biley123@cluster0.ez40t.mongodb.net/biley123?retryWrites=true&w=majority", {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    })
     .then(() => console.log("Successfully connected to MongoDB"))
     .catch((err) => console.log(err));
 
